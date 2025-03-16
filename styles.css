@@ -1,0 +1,224 @@
+/* Reset defaults for the document */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Full viewport height */
+    width: 100%; /* Full viewport width */
+    box-sizing: border-box; /* Include padding in dimensions */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000; /* Dark background */
+    color: white; /* Light text color */
+}
+
+/* Wrapper */
+.wrapper {
+    padding: 5%; /* Even padding around the grid */
+    height: 100vh; /* Full viewport height, including padding */
+}
+
+/* Main grid container */
+main {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Seven equal columns */
+    grid-template-rows: repeat(7, 1fr); /* Seven equal rows */
+    gap: 20px; /* Space between grid items */
+    height: 100%; /* Fills the wrapper height minus padding */
+    width: 100%; /* Fills the wrapper width minus padding */
+}
+
+/* Section styles (grid items) */
+section {
+    padding: 1%; /* Inner padding for content inside each grid item */
+    background-color: rgba(0, 0, 0, 0); /* Transparent background */
+    border: 2px solid #ffffff; /* White border around the section */
+    border-radius: 20px; /* Rounded corners for a smooth look */
+    text-align: left;
+}
+
+/* Specific section placements */
+#me {
+    grid-column: span 1;
+    grid-row: 1;
+    aspect-ratio: 1 / 1;
+}
+
+#dashboard-title {
+    grid-column: span 5;
+    grid-row: 1;
+    font-size: 1.5em;
+    border: none; /* Remove border */
+}
+
+#website-1 {
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center;
+    gap: 0.2rem;
+    justify-content: flex-start;
+    padding-left: 10px;
+    grid-column: span 3;
+    grid-row: 2;
+}
+
+/* Style for the smaller box */
+#website-1 .icon-box {
+    height: 80%; /* Size relative to parent */
+    aspect-ratio: 1 / 1; /* Ensure a square shape */
+    background-color: #00000000; /* Invisible background for the box */
+    color: #ffffff; /* White text color for contrast */
+    font-size: 1.5em;
+    display: flex; /* Center the text */
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    border: 2px solid #ffffff;
+}
+
+/* Text styling for "steamhunters.com" */
+#website-1 .text {
+    font-size: 1.8em;
+    color: white;
+    margin-left: 5px;
+}
+
+#website-2 {
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center;
+    gap: 0.2rem;
+    justify-content: flex-start;
+    padding-left: 10px;
+    grid-column: span 3;
+    grid-row: 3;
+}
+
+/* General styling for the clickable area */
+.website-link {
+    display: flex; /* Ensure horizontal alignment remains intact */
+    align-items: center; /* Vertically center items inside */
+    gap: 0.2rem; /* Keep spacing between icon and text */
+    text-decoration: none; /* Remove default underline for links */
+    color: inherit; /* Inherit text color (white in this case) */
+    width: 100%; /* Make sure the link spans the full width of the section */
+    height: 100%; /* Ensure the link fills the entire section */
+}
+
+/* Style for the smaller box */
+#website-2 .icon-box {
+    height: 80%; /* Size relative to parent */
+    aspect-ratio: 1 / 1; /* Ensure a square shape */
+    background-color: #00000000; /* Transparent background for the box */
+    color: #ffffff; /* White text color for contrast */
+    font-size: 1.5em;
+    display: flex; /* Center the text */
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    border: 2px solid #ffffff;
+}
+
+/* Text styling for "steamdb.com" */
+#website-2 .text {
+    font-size: 1.8em;
+    color: white;
+    margin-left: 5px;
+}
+
+#library {
+    grid-column: span 4;
+    grid-row: 2 / 4;
+}
+
+#playtime {
+    grid-column: span 4;
+    grid-row: 4 / 8;
+}
+
+#agc {
+    grid-column: span 3;
+    grid-row: 4 / 8;
+}
+
+#cph {
+    display: none;
+}
+
+/* Media query for small portrait screens (aspect ratio 1:1 or less) */
+@media (max-aspect-ratio: 1/1) {
+    main {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto 1fr 1fr 1fr;
+        height: 100%; /* Full viewport height */
+    }
+
+    /* Hide these boxes */
+    #website-1,
+    #website-2,
+    #agc,
+    #cph {
+        display: none;
+    }
+
+    #me {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+    #dashboard-title {
+        grid-column: 2 / 5;
+        grid-row: 1 / 2;
+    }
+
+    #library {
+        grid-column: 1 / 5;
+        grid-row: 2 / 3;
+    }
+
+    #playtime {
+        grid-column: 1 / 5;
+        grid-row: 3 / 5;
+    }
+}
+
+/* Media query for small landscape screens (aspect ratio 2:1 or more) */
+@media (min-aspect-ratio: 2/1) {
+    main {
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: auto 1fr;
+        height: 100%;
+    }
+
+    /* Hide these boxes */
+    #website-1,
+    #website-2,
+    #agc,
+    #cph {
+        display: none;
+    }
+
+    #me {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+    #dashboard-title {
+        grid-column: 2 / 4;
+        grid-row: 1 / 2;
+    }
+
+    #library {
+        grid-column: 5 / 8;
+        grid-row: 2 / 5;
+    }
+
+    #playtime {
+        grid-column: 1 / 5;
+        grid-row: 2 / 5;
+    }
+}
