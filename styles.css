@@ -49,7 +49,7 @@ section {
 #dashboard-title {
     grid-column: span 5;
     grid-row: 1;
-    font-size: 1.5em;
+    font-size: 1.6em;
     border: none;
 }
 
@@ -70,21 +70,8 @@ section {
     grid-row: 3;
 }
 
-#website-1 .icon-box, #website-2 .icon-box {
-    height: 80%;
-    aspect-ratio: 1 / 1;
-    background-color: transparent;
-    color: #fff;
-    font-size: 1.5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-    border: 2px solid #fff;
-}
-
 #website-1 .text, #website-2 .text {
-    font-size: 1.8em;
+    font-size: 1.6em;
     color: #fff;
     margin-left: 5px;
 }
@@ -114,7 +101,6 @@ section {
     grid-row: 4 / 8;
     overflow: hidden;
     border-radius: 20px;
-    border: 2px solid #fff;
 }
 
 .carousel-wrapper {
