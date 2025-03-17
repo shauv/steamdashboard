@@ -2,48 +2,44 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%; /* Full viewport height */
-    width: 100%; /* Full viewport width */
-    box-sizing: border-box; /* Include padding in dimensions */
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 * {
     box-sizing: border-box;
 }
 
-/* Body styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #000000; /* Dark background */
-    color: white; /* Light text color */
+    background-color: #000;
+    color: #fff;
 }
 
-/* Wrapper */
 .wrapper {
-    padding: 5%; /* Even padding around the grid */
-    height: 100vh; /* Full viewport height, including padding */
+    padding: 5%;
+    height: 100vh;
 }
 
-/* Main grid container */
 main {
     display: grid;
-    grid-template-columns: repeat(7, 1fr); /* Seven equal columns */
-    grid-template-rows: repeat(7, 1fr); /* Seven equal rows */
-    gap: 20px; /* Space between grid items */
-    height: 100%; /* Fills the wrapper height minus padding */
-    width: 100%; /* Fills the wrapper width minus padding */
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    gap: 20px;
+    height: 100%;
+    width: 100%;
 }
 
-/* Section styles (grid items) */
 section {
-    padding: 1%; /* Inner padding for content inside each grid item */
-    background-color: rgba(0, 0, 0, 0); /* Transparent background */
-    border: 2px solid #ffffff; /* White border around the section */
-    border-radius: 20px; /* Rounded corners for a smooth look */
+    padding: 1%;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 20px;
     text-align: left;
 }
 
-/* Specific section placements */
 #me {
     grid-column: span 1;
     grid-row: 1;
@@ -54,80 +50,53 @@ section {
     grid-column: span 5;
     grid-row: 1;
     font-size: 1.5em;
-    border: none; /* Remove border */
+    border: none;
+}
+
+#website-1, #website-2 {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    justify-content: flex-start;
+    padding-left: 10px;
+    grid-column: span 3;
 }
 
 #website-1 {
-    display: flex; /* Use flexbox for horizontal alignment */
-    align-items: center;
-    gap: 0.2rem;
-    justify-content: flex-start;
-    padding-left: 10px;
-    grid-column: span 3;
     grid-row: 2;
 }
 
-/* Style for the smaller box */
-#website-1 .icon-box {
-    height: 80%; /* Size relative to parent */
-    aspect-ratio: 1 / 1; /* Ensure a square shape */
-    background-color: #00000000; /* Invisible background for the box */
-    color: #ffffff; /* White text color for contrast */
-    font-size: 1.5em;
-    display: flex; /* Center the text */
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-    border: 2px solid #ffffff;
-}
-
-/* Text styling for "steamhunters.com" */
-#website-1 .text {
-    font-size: 1.8em;
-    color: white;
-    margin-left: 5px;
-}
-
 #website-2 {
-    display: flex; /* Use flexbox for horizontal alignment */
-    align-items: center;
-    gap: 0.2rem;
-    justify-content: flex-start;
-    padding-left: 10px;
-    grid-column: span 3;
     grid-row: 3;
 }
 
-/* General styling for the clickable area */
-.website-link {
-    display: flex; /* Ensure horizontal alignment remains intact */
-    align-items: center; /* Vertically center items inside */
-    gap: 0.2rem; /* Keep spacing between icon and text */
-    text-decoration: none; /* Remove default underline for links */
-    color: inherit; /* Inherit text color (white in this case) */
-    width: 100%; /* Make sure the link spans the full width of the section */
-    height: 100%; /* Ensure the link fills the entire section */
-}
-
-/* Style for the smaller box */
-#website-2 .icon-box {
-    height: 80%; /* Size relative to parent */
-    aspect-ratio: 1 / 1; /* Ensure a square shape */
-    background-color: #00000000; /* Transparent background for the box */
-    color: #ffffff; /* White text color for contrast */
+#website-1 .icon-box, #website-2 .icon-box {
+    height: 80%;
+    aspect-ratio: 1 / 1;
+    background-color: transparent;
+    color: #fff;
     font-size: 1.5em;
-    display: flex; /* Center the text */
+    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    border: 2px solid #ffffff;
+    border: 2px solid #fff;
 }
 
-/* Text styling for "steamdb.com" */
-#website-2 .text {
+#website-1 .text, #website-2 .text {
     font-size: 1.8em;
-    color: white;
+    color: #fff;
     margin-left: 5px;
+}
+
+.website-link {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    height: 100%;
 }
 
 #library {
@@ -140,13 +109,67 @@ section {
     grid-row: 4 / 8;
 }
 
-#agc {
+.carousel-container {
     grid-column: span 3;
     grid-row: 4 / 8;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 2px solid #fff;
 }
 
-#cph {
+.carousel-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
+    height: 100%;
+}
+
+.carousel-wrapper::-webkit-scrollbar {
     display: none;
+}
+
+.carousel-wrapper section {
+    flex: 0 0 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: center;
+}
+
+#agc, #cph {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    border: 0;
+}
+
+.pagination-dots {
+    position: relative;
+    top: -4vh;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: auto;
+}
+
+.dot {
+    width: 2%;
+    aspect-ratio: 1 / 1;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #fff;
 }
 
 /* Media query for small portrait screens (aspect ratio 1:1 or less) */
@@ -154,14 +177,10 @@ section {
     main {
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: auto 1fr 1fr 1fr;
-        height: 100%; /* Full viewport height */
+        height: 100%;
     }
 
-    /* Hide these boxes */
-    #website-1,
-    #website-2,
-    #agc,
-    #cph {
+    #website-1, #website-2, .carousel-container {
         display: none;
     }
 
@@ -194,11 +213,7 @@ section {
         height: 100%;
     }
 
-    /* Hide these boxes */
-    #website-1,
-    #website-2,
-    #agc,
-    #cph {
+    #website-1, #website-2, .carousel-container {
         display: none;
     }
 
