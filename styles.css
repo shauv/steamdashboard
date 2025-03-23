@@ -24,7 +24,7 @@ html, body {
 body {
     background-image:
         radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 1) 100%),
-        url('https://img.freepik.com/free-vector/watercolor-galaxy-background_23-2149231174.jpg?t=st=1742642062~exp=1742645662~hmac=d0b15da5060cfce0ba217ba276ae8d2e0dca3797e3291c1700f4755e8766a525&w=2000');
+        url('assets/background.jpg');
     background-color: black;
     background-size: cover;
     background-position: center;
@@ -178,11 +178,11 @@ section {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    height: auto;
+    height: 0.5%;
 }
 
 .dot {
-    width: 2.5%;
+    width: 2%;
     aspect-ratio: 1 / 1;
     background-color: transparent;
     border: 1px solid rgba(var(--purple-light));
