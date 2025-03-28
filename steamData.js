@@ -8,6 +8,9 @@ async function loadAvatar() {
         // Set the avatar URL in the image tag
         const avatarImg = document.getElementById('avatar');
         avatarImg.src = data.avatarUrl; // Assign the fetched URL
+        avatarImg.onload = () => {
+            avatarImg.style.opacity = 1; // Fade in the avatar
+        };
     } catch (error) {
         console.error('Failed to load avatar:', error);
     }
